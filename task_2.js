@@ -4,19 +4,21 @@
 
 // Здесь вам пригодятся знания из предыдущего модуля — циклы и условные операторы.
 
-function determineNumber() {
-    const num = +prompt('Введите любое число до 1000');
+const number = +prompt('Введите любое число до 1000');
 
-    if (num > 1000) {
-        console.log('Данные не верны, число больше 1000');
-    } else if ((num === 0) || (num === 1)) {
-        console.log('Число не является простым.');
+function isPrimeNumber(number) {
+    if (number <= 1 || number > 1000) {
+        console.log("Данные неверны. Введите число от 2 до 1000.");
+        return;
     }
-    else if ((num % num === 0)) {
-        console.log('Число является простым.');
-    } else {
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            console.log(`${number} не является простым числом.`);
+            return;
+        }
+    }
 
-    }
+    console.log(`${number} - простое число.`);
 }
 
-determineNumber();
+isPrimeNumber(number);
